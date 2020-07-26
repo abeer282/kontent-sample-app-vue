@@ -1,7 +1,7 @@
 describe(`Articles Testing`, () => {
 
     let articleNumber = 5;
-
+    
     beforeEach(() => {
         visitHomePage();
         passAdminConfigurations();
@@ -13,7 +13,8 @@ describe(`Articles Testing`, () => {
     };
 
     const passAdminConfigurations = () => {
-        cy.get(`:nth-child(2) > .button-secondary`).click();
+        if (cy.url().should(`eq`, `http://localhost:8080/Admin/Configuration`))
+            cy.get(`:nth-child(2) > .button-secondary`).click();
     };
 
     const enterArticlesPage = () => {
