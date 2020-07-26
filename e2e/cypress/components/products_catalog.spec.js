@@ -1,5 +1,7 @@
 describe(`Product Catalog Testing`, () => {
 
+    let coffeeProductNum = 2;
+
     beforeEach(() => {
         visitHomePage();
         passAdminConfigurations();
@@ -93,6 +95,25 @@ describe(`Product Catalog Testing`, () => {
         cy.get(`.col-md-4 > :nth-child(10)`).should(`contain`, `Status`);
         cy.get(`:nth-child(11) > label`).should(`contain`, `On sale`);
         cy.get(`:nth-child(12) > label`).should(`contain`, `Bestseller`);
+    };
+    
+    it(`should show the correct elements of coffee product`, () => {
+        cy.get(`.store-menu-list > ul > :nth-child(1) > a`).click();
+        showsProductName(coffeeProductNum);
+        showsProductTeaserImage(coffeeProductNum);
+        showsProductPrice(coffeeProductNum);
+    });
+
+    const showsProductName = (productNum) => {
+        cy.get(`:nth-child(` + productNum + `) > .product-tile > a > .product-heading`);
+    };
+
+    const showsProductTeaserImage = (productNum) => {
+        cy.get(`:nth-child(` + productNum + `) > .product-tile > a > .product-tile-image > img`);
+    };
+
+    const showsProductPrice = (productNum) => {
+        cy.get(`:nth-child(` + productNum + `) > .product-tile > a > .product-tile-info > .product-tile-price`);
     };
 
     const clickCoffees = () => {
