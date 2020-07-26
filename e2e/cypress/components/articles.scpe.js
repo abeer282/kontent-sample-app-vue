@@ -1,7 +1,7 @@
 describe(`Articles Testing`, () => {
 
     let articleNumber = 5;
-    
+
     beforeEach(() => {
         visitHomePage();
         passAdminConfigurations();
@@ -54,6 +54,35 @@ describe(`Articles Testing`, () => {
 
     const showSummary = (articleNum) => {
         cy.get(`:nth-child(` + articleNum + `) > .col-md-3 > .article-tile > .article-tile-content > .article-tile-text`);
+    };
+
+    it(`should click article`, () => {
+        click(articleNumber);
+    });
+
+    const click = (articleNum) => {
+        clickTeaserImage(articleNum);
+        clickTitle(articleNum);
+    };
+
+    const clickTeaserImage = (articleNum) => {
+        cy.get(`:nth-child(` + articleNum + `) > .col-md-3 > .article-tile > :nth-child(1) > .article-tile-image`)
+            .click({
+                force: true
+            })
+            .then(() => {
+                cy.go('back');
+            });
+    };
+
+    const clickTitle = (articleNum) => {
+        cy.get(`:nth-child(` + articleNum + `) > .col-md-3 > .article-tile > .article-tile-content > .h4 > a`)
+            .click({
+                force: true
+            })
+            .then(() => {
+                cy.go('back');
+            });
     };
 
 });
