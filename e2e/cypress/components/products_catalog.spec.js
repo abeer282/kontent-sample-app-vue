@@ -141,7 +141,25 @@ describe(`Product Catalog Testing`, () => {
         isBestsellerProduct();
         clickBrewerBestsellerFilter();//unckeck
     });
- 
+
+    it(`should filter bestseller brewer products with price 0-50$`, () => {
+        clickBrewers();
+        clickBrewerBestsellerFilter();//check
+        clickBrewerPrice0_50();//check
+        isBestsellerProduct();
+        isBrewerPrice0_50();
+        clickBrewerBestsellerFilter();//unckeck
+        clickBrewerPrice0_50();//unckeck
+    });
+
+    const clickBrewerPrice0_50 = () => {
+        cy.get(':nth-child(7) > label').click();
+    };
+
+    const isBrewerPrice0_50 = () => {
+        cy.get(`.product-tile-price`).should(`contain`,`$25.90`);
+    };
+
     const clickBrewerBestsellerFilter = () => {
         cy.get(':nth-child(12) > label').click();
     };
