@@ -135,6 +135,17 @@ describe(`Product Catalog Testing`, () => {
         cy.get(`:nth-child(7) > .checkbox > label`).click();
     };
 
+    it(`should filter bestseller brewer products`, () => {
+        clickBrewers();
+        clickBrewerBestsellerFilter();//check
+        isBestsellerProduct();
+        clickBrewerBestsellerFilter();//unckeck
+    });
+ 
+    const clickBrewerBestsellerFilter = () => {
+        cy.get(':nth-child(12) > label').click();
+    };
+
     const isBestsellerProduct = () => {
         cy.get(`.product-tile-status`).should(`contain`, `Bestseller`);
     };
