@@ -98,7 +98,7 @@ describe(`Product Catalog Testing`, () => {
     };
     
     it(`should show the correct elements of coffee product`, () => {
-        cy.get(`.store-menu-list > ul > :nth-child(1) > a`).click();
+        clickCoffees();
         showsProductName(coffeeProductNum);
         showsProductTeaserImage(coffeeProductNum);
         showsProductPrice(coffeeProductNum);
