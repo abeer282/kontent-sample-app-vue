@@ -1,6 +1,7 @@
 describe(`Product Catalog Testing`, () => {
 
     let coffeeProductNum = 2;
+    let brewerProductNum = 1;
 
     beforeEach(() => {
         visitHomePage();
@@ -102,6 +103,13 @@ describe(`Product Catalog Testing`, () => {
         showsProductName(coffeeProductNum);
         showsProductTeaserImage(coffeeProductNum);
         showsProductPrice(coffeeProductNum);
+    });
+
+    it(`should show the correct elements of brewer product`, () => {
+        clickBrewers();
+        showsProductName(brewerProductNum);
+        showsProductTeaserImage(brewerProductNum);
+        showsProductPrice(brewerProductNum);
     });
 
     const showsProductName = (productNum) => {
