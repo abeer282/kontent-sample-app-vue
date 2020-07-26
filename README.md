@@ -87,8 +87,8 @@ You can use, for example, [surge](http://surge.sh/) to deploy your app live. Che
 
 ## E2E Testing
 
-1- Navigate to the e2e folder in the root folder of the app in the command line.
-2- Type: `npm install cypress --save-dev` to install cypress.
-3- Make sure the app is running (according to the instructions in "Application setup" section above).
-4- Type: `node_modules\.bin\cypress open` to open the test runner. (You might need administrator privileges when running this command if your OS prevents running scripts)
-5- Click `Run all specs` to run all tests or click on specific test to run it.
+1. Navigate to the e2e folder in the root folder of the app in the command line.
+2. Type: `npm install cypress --save-dev` to install cypress.
+3. Make sure the app is running (according to the instructions in "Application setup" section above).
+4. Type: `node_modules\.bin\cypress open` to open the test runner. (You might need administrator privileges when running this command if your OS prevents running scripts)
+5. Click `Run all specs` to run all tests or click on specific test to run it.
