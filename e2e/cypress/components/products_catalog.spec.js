@@ -97,7 +97,7 @@ describe(`Product Catalog Testing`, () => {
         cy.get(`:nth-child(11) > label`).should(`contain`, `On sale`);
         cy.get(`:nth-child(12) > label`).should(`contain`, `Bestseller`);
     };
-    
+
     it(`should show the correct elements of coffee product`, () => {
         clickCoffees();
         showsProductName(coffeeProductNum);
@@ -122,6 +122,21 @@ describe(`Product Catalog Testing`, () => {
 
     const showsProductPrice = (productNum) => {
         cy.get(`:nth-child(` + productNum + `) > .product-tile > a > .product-tile-info > .product-tile-price`);
+    };
+
+    it(`should filter bestseller coffee products`, () => {
+        clickCoffees();
+        clickCoffeeBestsellerFilter();//check
+        isBestsellerProduct();
+        clickCoffeeBestsellerFilter();//unckeck
+    });
+
+    const clickCoffeeBestsellerFilter = () => {
+        cy.get(`:nth-child(7) > .checkbox > label`).click();
+    };
+
+    const isBestsellerProduct = () => {
+        cy.get(`.product-tile-status`).should(`contain`, `Bestseller`);
     };
 
     const clickCoffees = () => {
