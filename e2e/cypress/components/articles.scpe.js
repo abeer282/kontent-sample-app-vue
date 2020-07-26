@@ -22,4 +22,9 @@ describe(`Articles Testing`, () => {
         cy.title().should(`eq`, `Dancing Goat`);
     });
 
+    it(`should show the correct number of articles`, () => {
+        const expectedArticlesNum = 6;
+        cy.get(`.article-tile`).should(`have.length`, expectedArticlesNum);
+    });
+
 });
