@@ -1,7 +1,7 @@
 describe(`Articles Testing`, () => {
 
     let articleNumber = 5;
-    
+
     beforeEach(() => {
         visitHomePage();
         passAdminConfigurations();
@@ -18,7 +18,7 @@ describe(`Articles Testing`, () => {
     };
 
     const enterArticlesPage = () => {
-        cy.get(`:nth-child(3) > a`).click();
+        cy.get('.container > :nth-child(1) > ul > :nth-child(3) > a').click();
     };
 
     it(`should show the correct page title`, () => {
