@@ -56,15 +56,43 @@ describe(`Product Catalog Testing`, () => {
 
     const showsCoffeeProcessingFilters = () => {
         cy.get(`.flex > .col-md-4 > :nth-child(1)`).should(`contain`, `Coffee processing`);
-        cy.get(`:nth-child(2) > .checkbox > label`).should(`contain`, `Wet (Washed)`); 
-        cy.get(`:nth-child(3) > .checkbox > label`).should(`contain`, `Dry (Natural)`); 
+        cy.get(`:nth-child(2) > .checkbox > label`).should(`contain`, `Wet (Washed)`);
+        cy.get(`:nth-child(3) > .checkbox > label`).should(`contain`, `Dry (Natural)`);
         cy.get(`:nth-child(4) > .checkbox > label`).should(`contain`, `Semi-dry`);
     };
 
     const showsCoffeesStatusFilters = () => {
         cy.get(`.col-md-4 > :nth-child(5)`).should(`contain`, `Status`);
-        cy.get(`:nth-child(6) > .checkbox > label`).should(`contain`, `On sale`); 
-        cy.get(`:nth-child(7) > .checkbox > label`).should(`contain`, `Bestseller`); 
+        cy.get(`:nth-child(6) > .checkbox > label`).should(`contain`, `On sale`);
+        cy.get(`:nth-child(7) > .checkbox > label`).should(`contain`, `Bestseller`);
+    };
+
+    it(`should show the correct filters of brewers`, () => {
+        clickBrewers();
+        showsBrewersManufacturerFilters();
+        showsBrewersPriceFilters();
+        showsBrewersStatusFilters();
+    });
+
+    const showsBrewersManufacturerFilters = () => {
+        cy.get(`.flex > .col-md-4 > :nth-child(1)`).should(`contain`, `Manufacturer`);
+        cy.get(`:nth-child(2) > label`).should(`contain`, `Aerobie`);
+        cy.get(`:nth-child(3) > label`).should(`contain`, `Chemex`);
+        cy.get(`:nth-child(4) > label`).should(`contain`, `Espro`);
+        cy.get(`:nth-child(5) > label`).should(`contain`, `Hario`);
+    };
+
+    const showsBrewersPriceFilters = () => {
+        cy.get(`.col-md-4 > :nth-child(6)`).should(`contain`, `Price`);
+        cy.get(`:nth-child(7) > label`).should(`contain`, `$0.00 – $50.00`);
+        cy.get(`:nth-child(8) > label`).should(`contain`, `$50.00 – $250.00`);
+        cy.get(`:nth-child(9) > label`).should(`contain`, `$250.00 – $5,000.00`);
+    };
+
+    const showsBrewersStatusFilters = () => {
+        cy.get(`.col-md-4 > :nth-child(10)`).should(`contain`, `Status`);
+        cy.get(`:nth-child(11) > label`).should(`contain`, `On sale`);
+        cy.get(`:nth-child(12) > label`).should(`contain`, `Bestseller`);
     };
 
     const clickCoffees = () => {
@@ -74,7 +102,5 @@ describe(`Product Catalog Testing`, () => {
     const clickBrewers = () => {
         cy.get(`.store-menu-list > ul > :nth-child(2) > a`).click();
     };
-
-
 
 });
