@@ -36,4 +36,15 @@ describe(`Product Catalog Testing`, () => {
         cy.get(`.store-menu-list > ul > :nth-child(2) > a`).should(`contain`, `Brewers`);
     };
 
+    it(`should show the correct number of coffees products`, () => {
+        const expectedCoffees = 2;
+        cy.get(`.store-menu-list > ul > :nth-child(1) > a`).click();
+        cy.get(`.product-tile`).should(`have.length`, expectedCoffees);
+    });
+
+    it(`should show the correct number of brewers`, () => {
+        const expectedBrewers = 2;
+        cy.get(`.store-menu-list > ul > :nth-child(2) > a`).click();
+        cy.get(`.product-tile`).should(`have.length`, expectedBrewers);
+    });
 });
