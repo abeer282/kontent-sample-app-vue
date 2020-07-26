@@ -38,7 +38,7 @@ describe(`Product Catalog Testing`, () => {
 
     it(`should show the correct number of coffees products`, () => {
         const expectedCoffees = 2;
-        cy.get(`.store-menu-list > ul > :nth-child(1) > a`).click();
+        clickCoffees();
         cy.get(`.product-tile`).should(`have.length`, expectedCoffees);
     });
 
@@ -49,7 +49,7 @@ describe(`Product Catalog Testing`, () => {
     });
 
     it(`should show the correct filters of coffees`, () => {
-        cy.get(`.store-menu-list > ul > :nth-child(1) > a`).click();
+        clickCoffees();
         showsCoffeeProcessingFilters();
         showsCoffeesStatusFilters();
     });
@@ -65,6 +65,10 @@ describe(`Product Catalog Testing`, () => {
         cy.get(`.col-md-4 > :nth-child(5)`).should(`contain`, `Status`);
         cy.get(`:nth-child(6) > .checkbox > label`).should(`contain`, `On sale`); 
         cy.get(`:nth-child(7) > .checkbox > label`).should(`contain`, `Bestseller`); 
+    };
+
+    const clickCoffees = () => {
+        cy.get(`.store-menu-list > ul > :nth-child(1) > a`).click();
     };
 
 });
