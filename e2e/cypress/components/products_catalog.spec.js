@@ -44,7 +44,7 @@ describe(`Product Catalog Testing`, () => {
 
     it(`should show the correct number of brewers`, () => {
         const expectedBrewers = 2;
-        cy.get(`.store-menu-list > ul > :nth-child(2) > a`).click();
+        clickBrewers();
         cy.get(`.product-tile`).should(`have.length`, expectedBrewers);
     });
 
@@ -70,5 +70,11 @@ describe(`Product Catalog Testing`, () => {
     const clickCoffees = () => {
         cy.get(`.store-menu-list > ul > :nth-child(1) > a`).click();
     };
+
+    const clickBrewers = () => {
+        cy.get(`.store-menu-list > ul > :nth-child(2) > a`).click();
+    };
+
+
 
 });
